@@ -57,15 +57,11 @@ p {
     grid-column: 1 / 3;
     grid-row: 2 / 3;
     background-color: whitesmoke;
-}
-.removebook {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-}
-
-.changeread {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    overflow: auto;
+    align-items: flex-start;
 }
 
 button {
@@ -84,18 +80,35 @@ button {
     gap: 10px;
 }
 
-select {
-    width: 150px;
-    padding: 6px;
-    font-size: 16px;
-    border: 2px solid black;
-    border-radius: 6px;
-    background-color: white;
-    text-align: center;
-    font-weight: 600;
-}
-
 .icon {
     height: 25px;
     width: 25px;
 }
+
+.descript {
+    width: 200px;
+    line-height: 2;
+    overflow: auto;
+    white-space: pre-line;
+}
+
+.book-card {
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgb(233, 255, 135);
+
+}
+
+.newBtn {
+    width: 120px;
+    height: 30px;
+    font-size: 16px;
+    background-color: aqua;
+}
+

@@ -14,12 +14,41 @@ function addBook(title, author, pages, publishDate, hasBeenRead) {
     myLibrary.push(newBook);
 }
 
+display = document.querySelector(".card.system-log");
+
+addBook("40rules", "Rami", 69, 1996, true);
+
 function displayBooks(books) {
     for (let book of books) {
-        console.log(`Title: ${book.title}\nAuthor: ${book.author}\nPages: ${book.pages}\nDate of publication: ${book.publishDate}\nHas been read: ${book.hasBeenRead}\n\n`);
+
+        const bookCard = document.createElement("div");
+        bookCard.className = "book-card";
+        const text = document.createElement("p");
+        text.className = "descript";
+
+        text.textContent =
+        `Title: ${book.title}
+        Author: ${book.author}
+        Pages: ${book.pages}
+        Published in: ${book.publishDate}
+        Has been read: ${book.hasBeenRead}`;
+
+        const removeBtn = document.createElement("button");
+        removeBtn.className = "newBtn";
+        removeBtn.textContent = "Remove";
+        
+
+        const readBtn = document.createElement("button");
+        readBtn.className = "newBtn";
+        readBtn.textContent = "Change Read";
+
+
+        bookCard.appendChild(text);
+        bookCard.appendChild(removeBtn);
+        bookCard.appendChild(readBtn);
+
+        display.appendChild(bookCard);
     }
 }
 
-addBook("40rules", "Rami", 67, 2006, "yes");
-addBook("richdad", "kako", 96, 2026, "no");
 displayBooks(myLibrary);
