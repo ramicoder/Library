@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+<script src="./script.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="form-container">
+        <form action="" id="book-form">
+            <fieldset>
+                <div class="row">
+                    <div class="col">
+                        <label for="title">Book's Title:</label>
+                        <input type="text" id="title" name="title" minlength="2" maxlength="40" placeholder="40 Rules of Power" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="author">Book's Author:</label>
+                        <input type="text" id="author" name="author" minlength="2" maxlength="40" placeholder="C.S. Lewis" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="pages">Number of Pages:</label>
+                        <input type="number" id="pages" name="pages" max="10000" min="0" placeholder="100" required>                   
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="publication">Date of Publication:</label>
+                        <input type="number" id="publication" name="publication" min="600" max="2028" placeholder="2026" required>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="read">Has Been Read (yes | no)</label>
+                            <div class="row">
+                                <input type="radio" id="read" name="read" value="true" required>
+                                <input type="radio" id="unread" name="read" value="false">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="cta" type="submit" form="book-form">Add Book</button>
+                    <p>
+                        Add a new book to your library by filling in all the required fields. Please enter the book title, author name, number of pages, and reading status before submitting. Make sure the information is accurate so your library stays organized and easy to manage.
+                    </p>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
