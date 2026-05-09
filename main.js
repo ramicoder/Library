@@ -9,6 +9,21 @@ function Book(title, author, pages, publishDate, hasBeenRead) {
     this.hasBeenRead = hasBeenRead;
 }
 
+const form = document.getElementById("book-form");
+
+if (form) {
+    form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const page = document.getElementById("pages").value;
+    const publication = document.getElementById("publication").value;
+    const readStatus = document.querySelector('input[name="read"]:checked').value;
+    addBook(title, author, page, publication,readStatus);
+});
+}
+
+
 function addBook(title, author, pages, publishDate, hasBeenRead) {
     const newBook = new Book(title, author, pages, publishDate, hasBeenRead);
     myLibrary.push(newBook);
@@ -48,7 +63,10 @@ function displayBooks(books) {
         bookCard.appendChild(readBtn);
 
         display.appendChild(bookCard);
+        
     }
 }
 
-displayBooks(myLibrary);
+    displayBooks(myLibrary);
+
+

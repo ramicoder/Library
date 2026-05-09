@@ -29,12 +29,17 @@ label {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-input {
+input[type="text"], input[type="number"] {
     width: 100%;
     padding: 10px;
     font-size: 16px;
     border: 2px solid black;
     border-radius: 6px;
+}
+
+input[type="radio"] {
+    width: auto;
+    margin-left: auto;
 }
 
 .row {
