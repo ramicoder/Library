@@ -31,53 +31,69 @@ function addBook(title, author, pages, publishDate, hasBeenRead) {
     myLibrary.push(newBook);
 }
 
-display = document.querySelector(".system-log");
+const display = document.querySelector(".system-log");
 
 function displayBooks(books) {
-    for (let book of books) {
-        console.log(myLibrary);
+    for (let i = 0; i < books.length; i++) {
 
         const bookCard = document.createElement("div");
         bookCard.className = "book-card";
+        bookCard.id = i;
         const text = document.createElement("p");
         text.className = "descript";
 
         text.textContent =
-            `Title: ${book.title}
-            Author: ${book.author}
-            Pages: ${book.pages}
-            Published in: ${book.publishDate}
-            Has been read: ${book.hasBeenRead}`;
+            `Title: ${books[i].title}
+            Author: ${books[i].author}
+            Pages: ${books[i].pages}
+            Published in: ${books[i].publishDate}
+            Has been read: ${books[i].hasBeenRead}`;
 
         const removeBtn = document.createElement("button");
-        removeBtn.className = "newBtn";
+
+        removeBtn.classList.add("newBtn", "remove");
+        removeBtn.id = i;
         removeBtn.textContent = "Remove";
+        console.log(removeBtn.id)
 
 
         const readBtn = document.createElement("button");
-        readBtn.className = "newBtn";
+        readBtn.classList.add("newBtn", "read");
+        readBtn.id = i;
         readBtn.textContent = "Change Read";
 
 
         bookCard.appendChild(text);
         bookCard.appendChild(removeBtn);
         bookCard.appendChild(readBtn);
-        if (display) {
-            display.appendChild(bookCard);
-        }
+        display.appendChild(bookCard);
+
+        removeBtn.addEventListener("click", () => {
+            removeBook(myLibrary, removeBtn.id);
+            display.innerHTML = "";
+            displayBooks(myLibrary);
+        })
+
 
     }
 }
 addBook("kaka", "ss", "6", "2020", true);
+addBook("sasaa", "ss", "5", "2023", true);
 const displayBtn = document.querySelector(".displayBtn");
 
 displayBtn.addEventListener("click", () => {
-display.innerHTML = "";
-displayBooks(myLibrary);
+    display.innerHTML = "";
+    displayBooks(myLibrary);
 });
 
+function removeBook(books, index) {
+    books.splice(index, 1);
+}
 
- 
+
+
+
+
 
 
 
