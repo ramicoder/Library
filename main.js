@@ -54,14 +54,12 @@ function displayBooks(books) {
         removeBtn.classList.add("newBtn", "remove");
         removeBtn.id = i;
         removeBtn.textContent = "Remove";
-        console.log(removeBtn.id)
-
 
         const readBtn = document.createElement("button");
+
         readBtn.classList.add("newBtn", "read");
         readBtn.id = i;
         readBtn.textContent = "Change Read";
-
 
         bookCard.appendChild(text);
         bookCard.appendChild(removeBtn);
@@ -74,7 +72,11 @@ function displayBooks(books) {
             displayBooks(myLibrary);
         })
 
-
+        readBtn.addEventListener("click", () => {
+            changeRead(myLibrary, readBtn.id);
+            display.innerHTML = "";
+            displayBooks(myLibrary);
+        })
     }
 }
 addBook("kaka", "ss", "6", "2020", true);
@@ -90,7 +92,9 @@ function removeBook(books, index) {
     books.splice(index, 1);
 }
 
-
+function changeRead(books, index) {
+    books[index].hasBeenRead = !books[index].hasBeenRead;
+}
 
 
 
