@@ -12,19 +12,18 @@ function Book(title, author, pages, publishDate, hasBeenRead) {
 
 const form = document.getElementById("book-form");
 
-if (form) {
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const title = document.getElementById("title").value;
-        const author = document.getElementById("author").value;
-        const page = document.getElementById("pages").value;
-        const publication = document.getElementById("publication").value;
-        const readStatus = document.querySelector('input[name="read"]:checked').value;
-        addBook(title, author, page, publication, readStatus);
-        form.reset();
-        console.log(myLibrary);
-    });
-}
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const page = document.getElementById("pages").value;
+    const publication = document.getElementById("publication").value;
+    const readStatus = document.querySelector('input[name="read"]:checked').value;
+    addBook(title, author, page, publication, readStatus);
+    form.reset();
+    console.log(myLibrary);
+});
+
 
 
 function addBook(title, author, pages, publishDate, hasBeenRead) {
@@ -32,12 +31,11 @@ function addBook(title, author, pages, publishDate, hasBeenRead) {
     myLibrary.push(newBook);
 }
 
-display = document.querySelector(".card.system-log");
-addBook("40rules", "Rami", 69, 1996, true);
+display = document.querySelector(".system-log");
 
 function displayBooks(books) {
     for (let book of books) {
-         console.log(myLibrary);
+        console.log(myLibrary);
 
         const bookCard = document.createElement("div");
         bookCard.className = "book-card";
@@ -70,14 +68,14 @@ function displayBooks(books) {
 
     }
 }
-
+addBook("kaka", "ss", "6", "2020", true);
 const displayBtn = document.querySelector(".displayBtn");
-if (displayBtn) {
-    displayBtn.addEventListener("click", () => {
-    display.innerHTML = "";
-    displayBooks(myLibrary);
+
+displayBtn.addEventListener("click", () => {
+display.innerHTML = "";
+displayBooks(myLibrary);
 });
-}
+
 
  
 
