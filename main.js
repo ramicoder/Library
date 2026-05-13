@@ -67,20 +67,20 @@ function displayBooks(books) {
         display.appendChild(bookCard);
 
         removeBtn.addEventListener("click", () => {
-            removeBook(myLibrary, removeBtn.id);
+            removeBook(myLibrary, Number(removeBtn.id));
             display.innerHTML = "";
             displayBooks(myLibrary);
         })
 
         readBtn.addEventListener("click", () => {
-            changeRead(myLibrary, readBtn.id);
+            myLibrary[Number(readBtn.id)].changeRead();
             display.innerHTML = "";
             displayBooks(myLibrary);
         })
     }
 }
-addBook("kaka", "ss", "6", "2020", true);
-addBook("sasaa", "ss", "5", "2023", true);
+addBook("Welcome", "Rami", "1", "2026", true);
+
 const displayBtn = document.querySelector(".displayBtn");
 
 displayBtn.addEventListener("click", () => {
@@ -92,9 +92,9 @@ function removeBook(books, index) {
     books.splice(index, 1);
 }
 
-function changeRead(books, index) {
-    books[index].hasBeenRead = !books[index].hasBeenRead;
-}
+Book.prototype.changeRead = function () {
+    this.hasBeenRead = !this.hasBeenRead;
+};
 
 
 
