@@ -9,7 +9,6 @@ function Book(title, author, pages, publishDate, hasBeenRead) {
     this.hasBeenRead = hasBeenRead;
 }
 
-
 const form = document.getElementById("book-form");
 
 form.addEventListener("submit", (e) => {
@@ -23,8 +22,6 @@ form.addEventListener("submit", (e) => {
     form.reset();
     console.log(myLibrary);
 });
-
-
 
 function addBook(title, author, pages, publishDate, hasBeenRead) {
     const newBook = new Book(title, author, pages, publishDate, hasBeenRead);
@@ -79,6 +76,7 @@ function displayBooks(books) {
         })
     }
 }
+
 addBook("Welcome", "Rami", "1", "2026", true);
 
 const displayBtn = document.querySelector(".displayBtn");
