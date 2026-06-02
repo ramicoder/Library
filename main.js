@@ -1,12 +1,56 @@
 const myLibrary = [];
 
-function Book(title, author, pages, publishDate, hasBeenRead) {
-    this.id = crypto.randomUUID();
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.publishDate = publishDate;
-    this.hasBeenRead = hasBeenRead;
+class Book {
+    #id;
+    title;
+    #author;
+    #pages;
+    #publishDate;
+    hasBeenRead;
+    constructor (title, author, pages, publishDate, hasBeenRead) {
+        this.#id = crypto.randomUUID()
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.publishDate = publishDate;
+        this.hasBeenRead = hasBeenRead;
+    }
+
+    get author() {
+        return this.#author;
+    }
+
+    set author(value) {
+        if (value == "") 
+            console.log("Author name cannot be empty");
+        else {
+
+            this.#author = value;
+        }
+    }
+
+    get pages() {
+        return this.#pages;
+    }
+
+    set pages(value) {
+        this.#pages = value;
+    }
+    get publishDate() {
+        return this.#publishDate;
+    }
+
+    set publishDate(value) {
+        if (value > 2028 || value < 600) {
+            console.log("Value cannot be less than 600 nor greater than 2028");
+        } else {
+            this.#publishDate = value;
+        }
+    }
+
+    changeRead() {
+        this.hasBeenRead = !this.hasBeenRead;
+    }
 }
 
 const form = document.getElementById("book-form");
@@ -77,8 +121,6 @@ function displayBooks(books) {
     }
 }
 
-addBook("Welcome", "Rami", "1", "2026", true);
-
 const displayBtn = document.querySelector(".displayBtn");
 
 displayBtn.addEventListener("click", () => {
@@ -90,9 +132,6 @@ function removeBook(books, index) {
     books.splice(index, 1);
 }
 
-Book.prototype.changeRead = function () {
-    this.hasBeenRead = !this.hasBeenRead;
-};
 
 
 
